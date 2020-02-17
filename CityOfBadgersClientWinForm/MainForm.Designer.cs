@@ -43,6 +43,7 @@
             this.bPublish = new System.Windows.Forms.Button();
             this.bValidateClientToken = new System.Windows.Forms.Button();
             this.imgLed = new System.Windows.Forms.PictureBox();
+            this.bClose = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.imgLed)).BeginInit();
             this.SuspendLayout();
             // 
@@ -152,11 +153,11 @@
             // bPublish
             // 
             this.bPublish.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bPublish.Location = new System.Drawing.Point(139, 352);
+            this.bPublish.Location = new System.Drawing.Point(142, 321);
             this.bPublish.Name = "bPublish";
             this.bPublish.Size = new System.Drawing.Size(243, 34);
             this.bPublish.TabIndex = 11;
-            this.bPublish.Text = "Send discovered entries...";
+            this.bPublish.Text = "Publish discovered entries...";
             this.bPublish.UseVisualStyleBackColor = true;
             this.bPublish.Click += new System.EventHandler(this.bPublish_Click);
             // 
@@ -179,11 +180,23 @@
             this.imgLed.TabIndex = 13;
             this.imgLed.TabStop = false;
             // 
+            // bClose
+            // 
+            this.bClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bClose.Location = new System.Drawing.Point(447, 404);
+            this.bClose.Name = "bClose";
+            this.bClose.Size = new System.Drawing.Size(88, 34);
+            this.bClose.TabIndex = 14;
+            this.bClose.Text = "Close";
+            this.bClose.UseVisualStyleBackColor = true;
+            this.bClose.Click += new System.EventHandler(this.bClose_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(547, 450);
+            this.Controls.Add(this.bClose);
             this.Controls.Add(this.imgLed);
             this.Controls.Add(this.bValidateClientToken);
             this.Controls.Add(this.bPublish);
@@ -200,7 +213,7 @@
             this.Controls.Add(this.bBrowseLogFile);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainForm";
-            this.Text = "City of Badgers Client Form";
+            this.Text = "City of Badgers Client Tool";
             this.Load += new System.EventHandler(this.MainForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.imgLed)).EndInit();
             this.ResumeLayout(false);
@@ -224,6 +237,7 @@
         private System.Windows.Forms.Button bPublish;
         private System.Windows.Forms.Button bValidateClientToken;
         private System.Windows.Forms.PictureBox imgLed;
+        private System.Windows.Forms.Button bClose;
     }
 }
 

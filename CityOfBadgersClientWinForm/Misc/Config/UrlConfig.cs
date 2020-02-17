@@ -22,7 +22,10 @@ namespace CityOfBadgersClientWinForm
         {
             return UrlConfig.Instance.WebSiteUrl + "/" + string.Format(route, data);
         }
-
+        public static string Build(string route)
+        {
+            return UrlConfig.Instance.WebSiteUrl + "/" + route;
+        }
 
 
         public static UrlConfig Instance = Load();

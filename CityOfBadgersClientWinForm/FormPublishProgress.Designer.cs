@@ -30,38 +30,27 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormPublishProgress));
-            this.label1 = new System.Windows.Forms.Label();
-            this.bOk = new System.Windows.Forms.Button();
+            this.lblPublishing = new System.Windows.Forms.Label();
             this.bCancel = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.progressBar1 = new System.Windows.Forms.ProgressBar();
+            this.bOk = new System.Windows.Forms.Button();
+            this.lblCompleted = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // label1
+            // lblPublishing
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(12, 20);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(98, 17);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Publishing...";
-            // 
-            // bOk
-            // 
-            this.bOk.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bOk.Location = new System.Drawing.Point(94, 175);
-            this.bOk.Name = "bOk";
-            this.bOk.Size = new System.Drawing.Size(123, 30);
-            this.bOk.TabIndex = 2;
-            this.bOk.Text = "Ok";
-            this.bOk.UseVisualStyleBackColor = true;
-            this.bOk.Click += new System.EventHandler(this.bOk_Click);
+            this.lblPublishing.AutoSize = true;
+            this.lblPublishing.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPublishing.Location = new System.Drawing.Point(12, 20);
+            this.lblPublishing.Name = "lblPublishing";
+            this.lblPublishing.Size = new System.Drawing.Size(98, 17);
+            this.lblPublishing.TabIndex = 0;
+            this.lblPublishing.Text = "Publishing...";
             // 
             // bCancel
             // 
             this.bCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bCancel.Location = new System.Drawing.Point(223, 175);
+            this.bCancel.Location = new System.Drawing.Point(112, 97);
             this.bCancel.Name = "bCancel";
             this.bCancel.Size = new System.Drawing.Size(123, 30);
             this.bCancel.TabIndex = 3;
@@ -74,23 +63,36 @@
             this.timer1.Interval = 1;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // progressBar1
+            // bOk
             // 
-            this.progressBar1.Location = new System.Drawing.Point(37, 87);
-            this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(368, 23);
-            this.progressBar1.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
-            this.progressBar1.TabIndex = 4;
+            this.bOk.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bOk.Location = new System.Drawing.Point(112, 125);
+            this.bOk.Name = "bOk";
+            this.bOk.Size = new System.Drawing.Size(123, 30);
+            this.bOk.TabIndex = 4;
+            this.bOk.Text = "Ok";
+            this.bOk.UseVisualStyleBackColor = true;
+            this.bOk.Click += new System.EventHandler(this.bOk_Click);
+            // 
+            // lblCompleted
+            // 
+            this.lblCompleted.AutoSize = true;
+            this.lblCompleted.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCompleted.Location = new System.Drawing.Point(127, 75);
+            this.lblCompleted.Name = "lblCompleted";
+            this.lblCompleted.Size = new System.Drawing.Size(88, 17);
+            this.lblCompleted.TabIndex = 5;
+            this.lblCompleted.Text = "Completed!";
             // 
             // FormPublishProgress
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(435, 240);
-            this.Controls.Add(this.progressBar1);
-            this.Controls.Add(this.bCancel);
+            this.ClientSize = new System.Drawing.Size(353, 167);
+            this.Controls.Add(this.lblCompleted);
             this.Controls.Add(this.bOk);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.bCancel);
+            this.Controls.Add(this.lblPublishing);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -105,10 +107,10 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button bOk;
+        private System.Windows.Forms.Label lblPublishing;
         private System.Windows.Forms.Button bCancel;
         private System.Windows.Forms.Timer timer1;
-        private System.Windows.Forms.ProgressBar progressBar1;
+        private System.Windows.Forms.Button bOk;
+        private System.Windows.Forms.Label lblCompleted;
     }
 }

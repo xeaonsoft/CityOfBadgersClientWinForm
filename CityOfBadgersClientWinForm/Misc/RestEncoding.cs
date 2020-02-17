@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CityOfBadgersClientWinForm.Misc
+namespace CityOfBadgersClientWinForm
 {
     internal class RestEncoding
     {

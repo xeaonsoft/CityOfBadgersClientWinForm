@@ -59,7 +59,7 @@ namespace CityOfBadgersClientWinForm
             }
 
             bPublish.Enabled = false;
-            if (this.Data != null)
+            if (this.Data != null && this.Data.DiscoveredEntries.Length > 0)
                 bPublish.Enabled = (this.Data.DiscoveredEntries.Length > 0);
 
         }
@@ -100,7 +100,7 @@ namespace CityOfBadgersClientWinForm
 
             try
             {
-                string result = RestClient.MakeRequest(uri);
+                string result = RestClient.MakeSimpleRequest(uri);
                 this.TokenValid = (result.Trim().ToLower() == "yes");
                 if (this.TokenValid.Value)
                     MessageBox.Show("Token is valid");
@@ -122,7 +122,13 @@ namespace CityOfBadgersClientWinForm
                 form.ShowDialog();
             }
 
-          
+            this.LoadUI();
+
+        }
+
+        private void bClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

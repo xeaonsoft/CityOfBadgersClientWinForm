@@ -1,4 +1,6 @@
 ﻿using System;
+using System.IO;
+using System.IO.Compression;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,23 +15,25 @@ namespace CityOfBadgersClientWinForm
     public partial class FormPublishProgress : Form
     {
         public LogData Data { get; set; }
-        private int _index = 0;
+        //private int _index = 0;
         public FormPublishProgress()
         {
             InitializeComponent();
+
+            lblPublishing.Visible = true;
+            lblCompleted.Visible = false;
+            bCancel.Visible = true;
+            bOk.Visible = false;
         }
 
         private void Form_Load(object sender, EventArgs e)
         {
-            bOk.Enabled = false;
-            progressBar1.Value = 0;
+            
             timer1.Start();
         }
 
         private void bOk_Click(object sender, EventArgs e)
         {
-
-
             this.Close();
         }
 
@@ -44,12 +48,17 @@ namespace CityOfBadgersClientWinForm
             timer1.Stop();
 
 
-            ProcessOne();
+            Publish();
 
-            timer1.Start();
+            lblPublishing.Visible = false;
+            lblCompleted.Visible = true;
+            bCancel.Visible = false;
+            bOk.Visible = true;
+
+
         }
 
-        private void ProcessOne()
+        private void Publish()
         {
 
 
@@ -58,28 +67,27 @@ namespace CityOfBadgersClientWinForm
             {
 
                 BadgeDto dto = new BadgeDto();
-                dto.BadgeKey = this.Data.DiscoveredEntries[_index];
+                dto.BadgeKeys = this.Data.DiscoveredEntries;
                 dto.ClientToken = MainConfig.Instance.ClientToken;
                 dto.GlobalName = MainConfig.Instance.SelectedAccount.Name;
+                dto.CharacterName = this.Data.ToonName;
 
 
-                if (string.IsNullOrEmpty(dto.BadgeKey) || string.IsNullOrEmpty(dto.ClientToken) || string.IsNullOrEmpty(dto.GlobalName))
+                if (!dto.IsValid())
                     throw new Exception("Processing Data is not valid!");
 
                 string json = dto.ToJSON();
 
-                string stringData = Base64.Base64Encode(json);
-                string uri = UrlConfig.Build(UrlConfig.Instance.PublishRoute, stringData);
 
+                //string compressed = GZipCompression.Compress(json);
+                //string stringData = Base64.Base64Encode(compressed);
 
+                string uri = UrlConfig.Build(UrlConfig.Instance.PublishRoute);
 
+                string content = RestBasicDto.Prep(json);
+                RestClient.MakePostRequest(uri, content);
 
-                //string result = RestClient.MakeRequest(uri);
-                RestClient.MakeRequest(uri);
-
-
-                _index++;
-                RefreshProgressBar();
+                
             }
             catch (Exception ex)
             {
@@ -89,11 +97,11 @@ namespace CityOfBadgersClientWinForm
 
         }
 
-        private void RefreshProgressBar()
-        {
-            int prc = (int)Math.Floor(((double)_index / (double)this.Data.DiscoveredEntries.Length) * 100);
-            progressBar1.Value = prc;
-            this.Refresh();
-        }
+        //private void RefreshProgressBar()
+        //{
+        //    int prc = (int)Math.Floor(((double)_index / (double)this.Data.DiscoveredEntries.Length) * 100);
+        //    progressBar1.Value = prc;
+        //    this.Refresh();
+        //}
     }
 }

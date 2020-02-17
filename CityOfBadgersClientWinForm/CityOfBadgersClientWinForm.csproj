@@ -83,6 +83,8 @@
     </Compile>
     <Compile Include="Misc\Config\UrlConfig.cs" />
     <Compile Include="Misc\Config\MainConfig.cs" />
+    <Compile Include="Misc\GZipCompression.cs" />
+    <Compile Include="Misc\RestBasicDto.cs" />
     <Compile Include="Misc\RestClient.cs" />
     <Compile Include="Misc\RestEncoding.cs" />
     <Compile Include="Program.cs" />
