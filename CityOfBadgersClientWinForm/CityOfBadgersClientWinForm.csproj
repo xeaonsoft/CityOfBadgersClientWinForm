@@ -49,9 +49,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Biz\BinFileHandler.cs" />
     <Compile Include="Biz\CohLogPathManagement.cs" />
     <Compile Include="Biz\CohLogProcessing.cs" />
     <Compile Include="Biz\LogData.cs" />
+    <Compile Include="FormBindKeys.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormBindKeys.Designer.cs">
+      <DependentUpon>FormBindKeys.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormPublishProgress.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -78,6 +85,7 @@
     </Compile>
     <Compile Include="Misc\BadgeDto.cs" />
     <Compile Include="Misc\Base64Encode.cs" />
+    <Compile Include="Misc\Config\BindFileConfig.cs" />
     <Compile Include="Misc\FolderBrowserDialogEx.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -89,6 +97,9 @@
     <Compile Include="Misc\RestEncoding.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FormBindKeys.resx">
+      <DependentUpon>FormBindKeys.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormPublishProgress.resx">
       <DependentUpon>FormPublishProgress.cs</DependentUpon>
     </EmbeddedResource>
@@ -133,6 +144,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\led_red.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Copy16.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

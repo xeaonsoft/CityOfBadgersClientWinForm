@@ -43,7 +43,10 @@ namespace CityOfBadgersClientWinForm
 
             lblDiscoveredCount.Text = string.Empty;
             if (this.Data != null)
-                lblDiscoveredCount.Text = $"{this.Data.DiscoveredEntries.Length} Possible match discovered.";
+            {
+                lblDiscoveredCount.Text = $"{this.Data.ToonName}";
+                lblDiscoveredCount.Text += $"\r\n{this.Data.DiscoveredEntries.Length} Possible match discovered.";
+            }
 
             this.imgLed.Image = Properties.Resources.led_Gray;
 
@@ -129,6 +132,19 @@ namespace CityOfBadgersClientWinForm
         private void bClose_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+       
+
+        private void generateBindFilesToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            using (FormBindKeys form = new FormBindKeys())
+            {
+                //form.Data = this.Data;
+                form.ShowDialog();
+            }
+
+            this.LoadUI();
         }
     }
 }

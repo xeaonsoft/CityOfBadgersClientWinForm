@@ -44,12 +44,17 @@
             this.bValidateClientToken = new System.Windows.Forms.Button();
             this.imgLed = new System.Windows.Forms.PictureBox();
             this.bClose = new System.Windows.Forms.Button();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.menuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.generateBindFilesToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.configurationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.imgLed)).BeginInit();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // bBrowseLogFile
             // 
-            this.bBrowseLogFile.Location = new System.Drawing.Point(420, 34);
+            this.bBrowseLogFile.Location = new System.Drawing.Point(420, 52);
             this.bBrowseLogFile.Name = "bBrowseLogFile";
             this.bBrowseLogFile.Size = new System.Drawing.Size(75, 23);
             this.bBrowseLogFile.TabIndex = 0;
@@ -59,7 +64,7 @@
             // 
             // txtBrowseLogFile
             // 
-            this.txtBrowseLogFile.Location = new System.Drawing.Point(15, 34);
+            this.txtBrowseLogFile.Location = new System.Drawing.Point(11, 52);
             this.txtBrowseLogFile.Name = "txtBrowseLogFile";
             this.txtBrowseLogFile.ReadOnly = true;
             this.txtBrowseLogFile.Size = new System.Drawing.Size(399, 20);
@@ -68,7 +73,7 @@
             // lblBrowseLogFile
             // 
             this.lblBrowseLogFile.AutoSize = true;
-            this.lblBrowseLogFile.Location = new System.Drawing.Point(12, 18);
+            this.lblBrowseLogFile.Location = new System.Drawing.Point(11, 36);
             this.lblBrowseLogFile.Name = "lblBrowseLogFile";
             this.lblBrowseLogFile.Size = new System.Drawing.Size(72, 13);
             this.lblBrowseLogFile.TabIndex = 2;
@@ -77,7 +82,7 @@
             // lblSelectedAccount
             // 
             this.lblSelectedAccount.AutoSize = true;
-            this.lblSelectedAccount.Location = new System.Drawing.Point(12, 66);
+            this.lblSelectedAccount.Location = new System.Drawing.Point(11, 84);
             this.lblSelectedAccount.Name = "lblSelectedAccount";
             this.lblSelectedAccount.Size = new System.Drawing.Size(95, 13);
             this.lblSelectedAccount.TabIndex = 5;
@@ -85,7 +90,7 @@
             // 
             // txtSelectedAccount
             // 
-            this.txtSelectedAccount.Location = new System.Drawing.Point(15, 82);
+            this.txtSelectedAccount.Location = new System.Drawing.Point(11, 100);
             this.txtSelectedAccount.Name = "txtSelectedAccount";
             this.txtSelectedAccount.ReadOnly = true;
             this.txtSelectedAccount.Size = new System.Drawing.Size(140, 20);
@@ -93,7 +98,7 @@
             // 
             // bSelectAccount
             // 
-            this.bSelectAccount.Location = new System.Drawing.Point(161, 82);
+            this.bSelectAccount.Location = new System.Drawing.Point(161, 100);
             this.bSelectAccount.Name = "bSelectAccount";
             this.bSelectAccount.Size = new System.Drawing.Size(75, 23);
             this.bSelectAccount.TabIndex = 3;
@@ -104,7 +109,7 @@
             // bReadLogFile
             // 
             this.bReadLogFile.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bReadLogFile.Location = new System.Drawing.Point(15, 125);
+            this.bReadLogFile.Location = new System.Drawing.Point(11, 143);
             this.bReadLogFile.Name = "bReadLogFile";
             this.bReadLogFile.Size = new System.Drawing.Size(221, 34);
             this.bReadLogFile.TabIndex = 6;
@@ -115,7 +120,7 @@
             // lblClientToken
             // 
             this.lblClientToken.AutoSize = true;
-            this.lblClientToken.Location = new System.Drawing.Point(12, 207);
+            this.lblClientToken.Location = new System.Drawing.Point(11, 225);
             this.lblClientToken.Name = "lblClientToken";
             this.lblClientToken.Size = new System.Drawing.Size(144, 13);
             this.lblClientToken.TabIndex = 8;
@@ -123,7 +128,7 @@
             // 
             // txtClientToken
             // 
-            this.txtClientToken.Location = new System.Drawing.Point(15, 223);
+            this.txtClientToken.Location = new System.Drawing.Point(11, 241);
             this.txtClientToken.Name = "txtClientToken";
             this.txtClientToken.ReadOnly = true;
             this.txtClientToken.Size = new System.Drawing.Size(399, 20);
@@ -131,7 +136,7 @@
             // 
             // bInputClientKey
             // 
-            this.bInputClientKey.Location = new System.Drawing.Point(420, 223);
+            this.bInputClientKey.Location = new System.Drawing.Point(420, 240);
             this.bInputClientKey.Name = "bInputClientKey";
             this.bInputClientKey.Size = new System.Drawing.Size(75, 23);
             this.bInputClientKey.TabIndex = 9;
@@ -144,7 +149,7 @@
             this.lblDiscoveredCount.AutoSize = true;
             this.lblDiscoveredCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDiscoveredCount.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.lblDiscoveredCount.Location = new System.Drawing.Point(11, 162);
+            this.lblDiscoveredCount.Location = new System.Drawing.Point(11, 184);
             this.lblDiscoveredCount.Name = "lblDiscoveredCount";
             this.lblDiscoveredCount.Size = new System.Drawing.Size(12, 16);
             this.lblDiscoveredCount.TabIndex = 10;
@@ -163,7 +168,7 @@
             // 
             // bValidateClientToken
             // 
-            this.bValidateClientToken.Location = new System.Drawing.Point(356, 252);
+            this.bValidateClientToken.Location = new System.Drawing.Point(356, 270);
             this.bValidateClientToken.Name = "bValidateClientToken";
             this.bValidateClientToken.Size = new System.Drawing.Size(139, 23);
             this.bValidateClientToken.TabIndex = 12;
@@ -174,7 +179,7 @@
             // imgLed
             // 
             this.imgLed.Image = global::CityOfBadgersClientWinForm.Properties.Resources.led_Gray;
-            this.imgLed.Location = new System.Drawing.Point(501, 227);
+            this.imgLed.Location = new System.Drawing.Point(501, 243);
             this.imgLed.Name = "imgLed";
             this.imgLed.Size = new System.Drawing.Size(16, 16);
             this.imgLed.TabIndex = 13;
@@ -190,6 +195,39 @@
             this.bClose.Text = "Close";
             this.bClose.UseVisualStyleBackColor = true;
             this.bClose.Click += new System.EventHandler(this.bClose_Click);
+            // 
+            // menuStrip1
+            // 
+            this.menuStrip1.BackColor = System.Drawing.Color.White;
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menuToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(547, 24);
+            this.menuStrip1.TabIndex = 15;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // menuToolStripMenuItem
+            // 
+            this.menuToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.generateBindFilesToolStripMenuItem1,
+            this.configurationToolStripMenuItem});
+            this.menuToolStripMenuItem.Name = "menuToolStripMenuItem";
+            this.menuToolStripMenuItem.Size = new System.Drawing.Size(50, 20);
+            this.menuToolStripMenuItem.Text = "Menu";
+            // 
+            // generateBindFilesToolStripMenuItem1
+            // 
+            this.generateBindFilesToolStripMenuItem1.Name = "generateBindFilesToolStripMenuItem1";
+            this.generateBindFilesToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.generateBindFilesToolStripMenuItem1.Text = "Generate Bind Files";
+            this.generateBindFilesToolStripMenuItem1.Click += new System.EventHandler(this.generateBindFilesToolStripMenuItem1_Click);
+            // 
+            // configurationToolStripMenuItem
+            // 
+            this.configurationToolStripMenuItem.Name = "configurationToolStripMenuItem";
+            this.configurationToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.configurationToolStripMenuItem.Text = "Configuration";
             // 
             // MainForm
             // 
@@ -211,12 +249,16 @@
             this.Controls.Add(this.lblBrowseLogFile);
             this.Controls.Add(this.txtBrowseLogFile);
             this.Controls.Add(this.bBrowseLogFile);
+            this.Controls.Add(this.menuStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "City of Badgers Client Tool";
             this.Load += new System.EventHandler(this.MainForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.imgLed)).EndInit();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -239,6 +281,10 @@
         private System.Windows.Forms.Button bValidateClientToken;
         private System.Windows.Forms.PictureBox imgLed;
         private System.Windows.Forms.Button bClose;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem menuToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem generateBindFilesToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem configurationToolStripMenuItem;
     }
 }
 

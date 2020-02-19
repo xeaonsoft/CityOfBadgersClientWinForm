@@ -103,7 +103,7 @@ namespace CityOfBadgersClientWinForm
                         string name = line.Replace(logInRed, string.Empty).Replace(logInBlue, string.Empty);
 
                         LogData data = new LogData();
-                        data.ToonName = name.Substring(0, name.Length - 1);
+                        data.ToonName = name.Substring(0, name.Length - 1).Trim();
                         data.LogStartEntry = DateTime.Parse(date);
                         data.GlobalName = MainConfig.Instance.SelectedAccount.Name;
                         data.ContentLines = lines;

@@ -15,7 +15,7 @@ namespace CityOfBadgersClientWinForm
     public partial class FormPublishProgress : Form
     {
         public LogData Data { get; set; }
-        //private int _index = 0;
+        
         public FormPublishProgress()
         {
             InitializeComponent();
@@ -28,7 +28,7 @@ namespace CityOfBadgersClientWinForm
 
         private void Form_Load(object sender, EventArgs e)
         {
-            
+
             timer1.Start();
         }
 
@@ -48,17 +48,18 @@ namespace CityOfBadgersClientWinForm
             timer1.Stop();
 
 
-            Publish();
-
-            lblPublishing.Visible = false;
-            lblCompleted.Visible = true;
-            bCancel.Visible = false;
-            bOk.Visible = true;
+            if (Publish())
+            {
+                lblPublishing.Visible = false;
+                lblCompleted.Visible = true;
+                bCancel.Visible = false;
+                bOk.Visible = true;
+            }
 
 
         }
 
-        private void Publish()
+        private bool Publish()
         {
 
 
@@ -78,30 +79,30 @@ namespace CityOfBadgersClientWinForm
 
                 string json = dto.ToJSON();
 
-
-                //string compressed = GZipCompression.Compress(json);
-                //string stringData = Base64.Base64Encode(compressed);
+                
 
                 string uri = UrlConfig.Build(UrlConfig.Instance.PublishRoute);
 
                 string content = RestBasicDto.Prep(json);
-                RestClient.MakePostRequest(uri, content);
-
-                
+                string result = RestClient.MakePostRequest(uri, content);
+                result = $"{result}".Trim().ToLower();
+                if (!string.IsNullOrEmpty(result) && result != "success")
+                {
+                    MessageBox.Show(result);
+                    this.Close();
+                    return false;
+                }
+                return true;
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
                 this.Close();
+                return false;
             }
 
         }
 
-        //private void RefreshProgressBar()
-        //{
-        //    int prc = (int)Math.Floor(((double)_index / (double)this.Data.DiscoveredEntries.Length) * 100);
-        //    progressBar1.Value = prc;
-        //    this.Refresh();
-        //}
+       
     }
 }
