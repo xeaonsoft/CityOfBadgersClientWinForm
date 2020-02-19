@@ -79,6 +79,7 @@
             this.MinimizeBox = false;
             this.Name = "FormSelectAccount";
             this.ShowInTaskbar = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "-";
             this.Load += new System.EventHandler(this.FormSelectAccount_Load);
             this.ResumeLayout(false);

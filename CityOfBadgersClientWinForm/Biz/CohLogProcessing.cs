@@ -39,6 +39,14 @@ namespace CityOfBadgersClientWinForm
                 return null;
             }
 
+            if (!ValidateIsHomecoming(path))
+            {
+                MessageBox.Show("HOMECOMING validation failed!");
+                return null;
+            }
+
+
+
             LogData data = FetchData(path);
             if (data == null)
             {
@@ -51,9 +59,19 @@ namespace CityOfBadgersClientWinForm
 
             return data;
         }
-
+        private static bool ValidateIsHomecoming(string path)
+        {
+            string parent1 = Directory.GetParent(path).FullName;
+            string parent2 = Directory.GetParent(parent1).FullName;
+            string gameRootFolder = Directory.GetParent(parent2).FullName;
+            string exePath = Path.Combine(gameRootFolder, "homecoming.exe");
+            return File.Exists(exePath);
+        }
         public static LogData FetchData(string path)
         {
+
+
+
             /*
                 Now entering the Rogue Isles, Nikma!
                 Welcome to City of Heroes, Cold-Trust!
@@ -119,7 +137,6 @@ namespace CityOfBadgersClientWinForm
                     if (line.EndsWith(BadgeDetectionKey1))
                     {
                         line = line.Replace(BadgeDetectionKey1, string.Empty).Trim();
-                        //BadgeManager.Add(new BadgeItem { Name = line, Selected = true });
                         discoveredList.Add(line);
                     }
                     if (line.Contains(BadgeDetectionKey2))
@@ -127,7 +144,6 @@ namespace CityOfBadgersClientWinForm
                         line = line.Replace(BadgeDetectionKey2, string.Empty);
                         line = line.Replace("badge.", string.Empty);
                         line = line.Trim();
-                        //BadgeManager.Add(new BadgeItem { Name = line, Selected = true });
                         discoveredList.Add(line);
                     }
                 }

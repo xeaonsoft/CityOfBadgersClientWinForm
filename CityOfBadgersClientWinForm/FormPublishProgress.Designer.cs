@@ -98,6 +98,7 @@
             this.MinimizeBox = false;
             this.Name = "FormPublishProgress";
             this.ShowInTaskbar = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "-";
             this.Load += new System.EventHandler(this.Form_Load);
             this.ResumeLayout(false);
