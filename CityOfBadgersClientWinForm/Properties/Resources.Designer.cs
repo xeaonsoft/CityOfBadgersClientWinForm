@@ -61,6 +61,16 @@ namespace CityOfBadgersClientWinForm.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] BindFileConfig {
+            get {
+                object obj = ResourceManager.GetObject("BindFileConfig", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to luq8t73DvsLRhXOJ5vGb7tPfCpzHGonCCManY9HKQH4hbE0VZLjq94TWlh3R.
         /// </summary>
         internal static string CobApiKey {
@@ -106,6 +116,26 @@ namespace CityOfBadgersClientWinForm.Properties {
             get {
                 object obj = ResourceManager.GetObject("led_red", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] MainConfig {
+            get {
+                object obj = ResourceManager.GetObject("MainConfig", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] UrlConfig {
+            get {
+                object obj = ResourceManager.GetObject("UrlConfig", resourceCulture);
+                return ((byte[])(obj));
             }
         }
     }

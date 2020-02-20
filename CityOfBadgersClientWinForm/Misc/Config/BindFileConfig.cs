@@ -20,19 +20,15 @@ namespace CityOfBadgersClientWinForm
 
         public static BindFileConfig Load()
         {
-            BindFileConfig instance;
-            string saveFile = GetFileName();
-            if (File.Exists(saveFile))
-            {
-                string jsonContent = File.ReadAllText(saveFile);
-                instance = JsonConvert.DeserializeObject<BindFileConfig>(jsonContent);
-
-            }
+            
+            string fileName = GetFileName();
+            string jsonContent = null;
+            if (File.Exists(fileName))
+                jsonContent = File.ReadAllText(fileName);
             else
-            {
-                instance = new BindFileConfig();
-            }
+                jsonContent = RessourcesReader.TextFileRessourceToString(Properties.Resources.BindFileConfig);
 
+            BindFileConfig instance = JsonConvert.DeserializeObject<BindFileConfig>(jsonContent);
             instance.Validate();
 
             return instance;
@@ -69,16 +65,11 @@ namespace CityOfBadgersClientWinForm
             File.WriteAllText(saveFile, jsonContent);
         }
 
-        
+
 
         private static string GetFileName()
         {
-            //string rootFolder = new FileInfo(Assembly.GetExecutingAssembly().Location).DirectoryName;
-            string rootFolder = Directory.GetCurrentDirectory();
-            string configFolder = Path.Combine(rootFolder, "ConfigFiles");
-            if (!Directory.Exists(configFolder))
-                Directory.CreateDirectory(configFolder);
-            return Path.Combine(configFolder, "BindFileConfig.json");
+            return IO.GetRoamingFilePath("BindFileConfig.json");
         }
     }
 }

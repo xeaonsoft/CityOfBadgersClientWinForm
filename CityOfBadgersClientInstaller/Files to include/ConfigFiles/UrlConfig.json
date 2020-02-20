@@ -1,0 +1,5 @@
+{
+  "WebSiteUrl": "http://localhost:52394",
+  "ValidateTokenRoute": "CobApi/ValidateToken?token={0}",
+  "PublishRoute": "CobApi/ValidateBadge"
+}

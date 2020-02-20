@@ -20,7 +20,11 @@ namespace CityOfBadgersClientWinForm
             InitializeComponent();
         }
 
-
+        private void menuStrip1_Paint(object sender, PaintEventArgs e)
+        {
+            e.Graphics.DrawLine(Pens.Gray, menuStrip1.Left, menuStrip1.Top + 1, menuStrip1.Right, menuStrip1.Top + 1);
+            e.Graphics.DrawLine(Pens.Gray, menuStrip1.Left, menuStrip1.Bottom - 1, menuStrip1.Right, menuStrip1.Bottom - 1);
+        }
 
         private void MainForm_Load(object sender, EventArgs e)
         {
@@ -134,16 +138,21 @@ namespace CityOfBadgersClientWinForm
             this.Close();
         }
 
-       
+
 
         private void generateBindFilesToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             using (FormBindKeys form = new FormBindKeys())
-            {
-                //form.Data = this.Data;
                 form.ShowDialog();
-            }
+            this.LoadUI();
+        }
 
+      
+
+        private void configurationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using (FormConfig form = new FormConfig())
+                form.ShowDialog();
             this.LoadUI();
         }
     }

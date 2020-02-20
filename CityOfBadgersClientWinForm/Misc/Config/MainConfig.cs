@@ -26,20 +26,18 @@ namespace CityOfBadgersClientWinForm
 
         public static MainConfig Instance = Load();
 
+      
         public static MainConfig Load()
         {
-            string saveFile = GetFileName();
-            if (File.Exists(saveFile))
-            {
-                string jsonContent = File.ReadAllText(saveFile);
-                MainConfig instance = JsonConvert.DeserializeObject<MainConfig>(jsonContent);
-                return instance;
-            }
+            string fileName = GetFileName();
+            string jsonContent = null;
+            if (File.Exists(fileName))
+                jsonContent = File.ReadAllText(fileName);
             else
-            {
-                return new MainConfig();
-            }
+                jsonContent = RessourcesReader.TextFileRessourceToString(Properties.Resources.MainConfig);
 
+            MainConfig instance = JsonConvert.DeserializeObject<MainConfig>(jsonContent);
+            return instance;
         }
 
 
@@ -52,11 +50,7 @@ namespace CityOfBadgersClientWinForm
 
         private static string GetFileName()
         {
-            string rootFolder = new FileInfo(Assembly.GetExecutingAssembly().Location).DirectoryName;
-            string configFolder = Path.Combine(rootFolder, "ConfigFiles");
-            if (!Directory.Exists(configFolder))
-                Directory.CreateDirectory(configFolder);
-            return Path.Combine(configFolder, "MainConfig.json");
+            return IO.GetRoamingFilePath("MainConfig.json");
         }
     }
 }

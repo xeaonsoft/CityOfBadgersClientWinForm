@@ -30,22 +30,24 @@ namespace CityOfBadgersClientWinForm
 
         public static UrlConfig Instance = Load();
 
+     
         public static UrlConfig Load()
         {
-            string saveFile = GetFileName();
-            if (File.Exists(saveFile))
-            {
-                string jsonContent = File.ReadAllText(saveFile);
-                UrlConfig instance = JsonConvert.DeserializeObject<UrlConfig>(jsonContent);
-                return instance;
-            }
+
+            string fileName = GetFileName();
+            string jsonContent = null;
+            if (File.Exists(fileName))
+                jsonContent = File.ReadAllText(fileName);
             else
-            {
-                return new UrlConfig();
-            }
+                jsonContent = RessourcesReader.TextFileRessourceToString(Properties.Resources.UrlConfig);
+
+            UrlConfig instance = JsonConvert.DeserializeObject<UrlConfig>(jsonContent);
+
+            instance.Save();
+
+            return instance;
 
         }
-
 
         public void Save()
         {
@@ -56,11 +58,7 @@ namespace CityOfBadgersClientWinForm
 
         private static string GetFileName()
         {
-            string rootFolder = new FileInfo(Assembly.GetExecutingAssembly().Location).DirectoryName;
-            string configFolder = Path.Combine(rootFolder, "ConfigFiles");
-            if (!Directory.Exists(configFolder))
-                Directory.CreateDirectory(configFolder);
-            return Path.Combine(configFolder, "UrlConfig.json");
+            return IO.GetRoamingFilePath("UrlConfig.json");
         }
     }
 }
