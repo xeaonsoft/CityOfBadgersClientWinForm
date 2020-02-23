@@ -1,5 +1,5 @@
 {
-  "WebSiteUrl": "http://localhost:52394",
+  "WebSiteUrl": "https://cityofbadgers.com",
   "ValidateTokenRoute": "CobApi/ValidateToken?token={0}",
   "PublishRoute": "CobApi/ValidateBadge"
 }

@@ -110,7 +110,7 @@
             "Enabled" = "11:TRUE"
             "PromptEnabled" = "11:TRUE"
             "PrerequisitesLocation" = "2:1"
-            "Url" = "8:"
+            "Url" = "8:http://cityofbadgers.com/Download/CityOfBadgersClientInstaller.msi"
             "ComponentsUrl" = "8:"
                 "Items"
                 {
@@ -300,7 +300,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:City Of Badgers Client Tool"
         "ProductCode" = "8:{D8689FA8-F5A7-411A-88E3-E2A159B57B0B}"
-        "PackageCode" = "8:{FCD0C847-C61D-44D0-8554-BF1C53DC4B23}"
+        "PackageCode" = "8:{D0A1B3A7-78B7-4920-A2D0-CCE567171F79}"
         "UpgradeCode" = "8:{E9C53C38-873C-41DF-B2E8-7BCFF941BE07}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
