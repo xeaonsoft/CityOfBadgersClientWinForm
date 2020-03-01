@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 
-namespace CityOfBadgersClientWinForm
+namespace CityOfBadgersClientTool
 {
     public class BadgeDto
     {

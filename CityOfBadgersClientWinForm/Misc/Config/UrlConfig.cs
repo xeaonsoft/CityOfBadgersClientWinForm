@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using Newtonsoft.Json;
 using System.Reflection;
 
-namespace CityOfBadgersClientWinForm
+namespace CityOfBadgersClientTool
 {
   
     public class UrlConfig

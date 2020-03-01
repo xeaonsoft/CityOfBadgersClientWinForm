@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 
 
-namespace CityOfBadgersClientWinForm
+namespace CityOfBadgersClientTool
 {
     public class CohLogProcessing
     {
@@ -79,6 +79,7 @@ namespace CityOfBadgersClientWinForm
              */
             const string logInRed = "Now entering the Rogue Isles,";
             const string logInBlue = "Welcome to City of Heroes,";
+            const string globalEntryStart = "Using global chat handle";
 
             string[] lines;
 
@@ -88,7 +89,7 @@ namespace CityOfBadgersClientWinForm
                 string content = sr.ReadToEnd();
                 lines = content.Split('\r');
             }
-
+            string globalName = null;//need to use globalName from Log file as the folder names are login names, not global names
             //read lines in reverse
             for (int i = lines.Length - 1; i >= 0; i--)
             {
@@ -97,7 +98,13 @@ namespace CityOfBadgersClientWinForm
                 {
                     string date = line.Substring(0, 20).Trim();
                     line = line.Substring(20, line.Length - 20);
-                    if (line.Trim().StartsWith(logInRed) || line.Trim().StartsWith(logInBlue))
+
+                    if (line.Trim().StartsWith(globalEntryStart))
+                    {
+                        string name = line.Replace(globalEntryStart, string.Empty);
+                        globalName = name.Substring(0, name.Length).Trim().TrimStart('@');
+                    }
+                    else if (line.Trim().StartsWith(logInRed) || line.Trim().StartsWith(logInBlue))
                     {
 
                         string name = line.Replace(logInRed, string.Empty).Replace(logInBlue, string.Empty);
@@ -105,7 +112,7 @@ namespace CityOfBadgersClientWinForm
                         LogData data = new LogData();
                         data.ToonName = name.Substring(0, name.Length - 1).Trim();
                         data.LogStartEntry = DateTime.Parse(date);
-                        data.GlobalName = MainConfig.Instance.SelectedAccount.Name;
+                        data.GlobalName = globalName;//MainConfig.Instance.SelectedAccount.Name;
                         data.ContentLines = lines;
                         return data;
                     }

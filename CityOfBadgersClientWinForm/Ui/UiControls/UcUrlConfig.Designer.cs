@@ -1,4 +1,4 @@
-﻿namespace CityOfBadgersClientWinForm.Ui.UiControls
+﻿namespace CityOfBadgersClientTool.Ui.UiControls
 {
     partial class UcUrlConfig
     {

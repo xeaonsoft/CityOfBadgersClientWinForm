@@ -1,4 +1,4 @@
-﻿namespace CityOfBadgersClientWinForm
+﻿namespace CityOfBadgersClientTool
 {
     partial class FormBindKeys
     {
@@ -193,7 +193,7 @@
             // bCopy
             // 
             this.bCopy.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bCopy.Image = global::CityOfBadgersClientWinForm.Properties.Resources.Copy16;
+            this.bCopy.Image = global::CityOfBadgersClientTool.Properties.Resources.Copy16;
             this.bCopy.Location = new System.Drawing.Point(375, 189);
             this.bCopy.Name = "bCopy";
             this.bCopy.Size = new System.Drawing.Size(38, 30);

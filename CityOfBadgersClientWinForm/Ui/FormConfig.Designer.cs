@@ -1,4 +1,4 @@
-﻿namespace CityOfBadgersClientWinForm
+﻿namespace CityOfBadgersClientTool
 {
     partial class FormConfig
     {
@@ -30,7 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormConfig));
             this.button1 = new System.Windows.Forms.Button();
-            this.ucUrlConfig1 = new CityOfBadgersClientWinForm.Ui.UiControls.UcUrlConfig();
+            this.ucUrlConfig1 = new CityOfBadgersClientTool.Ui.UiControls.UcUrlConfig();
             this.SuspendLayout();
             // 
             // button1

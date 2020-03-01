@@ -10,7 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace CityOfBadgersClientWinForm
+namespace CityOfBadgersClientTool
 {
     public partial class FormBindKeys : Form
     {

@@ -6,13 +6,14 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{116F10E0-84F1-4394-A6B7-A5BD91CD7D34}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>CityOfBadgersClientWinForm</RootNamespace>
-    <AssemblyName>CityOfBadgersClientWinForm</AssemblyName>
+    <RootNamespace>CityOfBadgersClientTool</RootNamespace>
+    <AssemblyName>CityOfBadgersClientTool</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
-    <PublishUrl>publish\</PublishUrl>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>C:\CodeEnv\Xeaonsoft\CoH Stuff\CityOfBadgers\CityOfBadgersClientWinForm\_publish_\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
     <UpdateEnabled>false</UpdateEnabled>
@@ -22,10 +23,10 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>0</ApplicationRevision>
-    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <ApplicationRevision>1</ApplicationRevision>
+    <ApplicationVersion>1.1.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -60,7 +61,17 @@
     <SignManifests>true</SignManifests>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestTimestampUrl>https://cityofbadgers.com/</ManifestTimestampUrl>
+    <ManifestTimestampUrl>
+    </ManifestTimestampUrl>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>423F57621235A67976593F4E2835E56646B11A6E</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>CityOfBadgersClientTool_1_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
@@ -143,6 +154,7 @@
     </Compile>
     <EmbeddedResource Include="Ui\FormBindKeys.resx">
       <DependentUpon>FormBindKeys.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Ui\FormConfig.resx">
       <DependentUpon>FormConfig.cs</DependentUpon>
@@ -176,6 +188,8 @@
     <None Include="bin\Debug\ConfigFiles\MainConfig.json" />
     <None Include="bin\Debug\ConfigFiles\UrlConfig.json" />
     <None Include="CityOfBadgers.pfx" />
+    <None Include="CityOfBadgersClientTool_1_TemporaryKey.pfx" />
+    <None Include="CityOfBadgersClientTool_TemporaryKey.pfx" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

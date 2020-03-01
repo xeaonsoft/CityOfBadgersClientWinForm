@@ -10,7 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace CityOfBadgersClientWinForm
+namespace CityOfBadgersClientTool
 {
     public partial class FormPublishProgress : Form
     {
@@ -70,7 +70,7 @@ namespace CityOfBadgersClientWinForm
                 BadgeDto dto = new BadgeDto();
                 dto.BadgeKeys = this.Data.DiscoveredEntries;
                 dto.ClientToken = MainConfig.Instance.ClientToken;
-                dto.GlobalName = MainConfig.Instance.SelectedAccount.Name;
+                dto.GlobalName = this.Data.GlobalName;//MainConfig.Instance.SelectedAccount.Name;
                 dto.CharacterName = this.Data.ToonName;
 
 

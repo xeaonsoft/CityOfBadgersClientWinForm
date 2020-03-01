@@ -1,4 +1,4 @@
-﻿namespace CityOfBadgersClientWinForm
+﻿namespace CityOfBadgersClientTool
 {
     partial class FormInputClientToken
     {

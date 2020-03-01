@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CityOfBadgersClientWinForm
+namespace CityOfBadgersClientTool
 {
     public class RestBasicDto
     {

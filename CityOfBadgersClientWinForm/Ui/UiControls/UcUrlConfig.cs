@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace CityOfBadgersClientWinForm.Ui.UiControls
+namespace CityOfBadgersClientTool.Ui.UiControls
 {
     public partial class UcUrlConfig : UserControl
     {

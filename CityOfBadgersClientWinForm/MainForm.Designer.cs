@@ -1,4 +1,4 @@
-﻿namespace CityOfBadgersClientWinForm
+﻿namespace CityOfBadgersClientTool
 {
     partial class MainForm
     {
@@ -178,7 +178,7 @@
             // 
             // imgLed
             // 
-            this.imgLed.Image = global::CityOfBadgersClientWinForm.Properties.Resources.led_Gray;
+            this.imgLed.Image = global::CityOfBadgersClientTool.Properties.Resources.led_Gray;
             this.imgLed.Location = new System.Drawing.Point(501, 243);
             this.imgLed.Name = "imgLed";
             this.imgLed.Size = new System.Drawing.Size(16, 16);
