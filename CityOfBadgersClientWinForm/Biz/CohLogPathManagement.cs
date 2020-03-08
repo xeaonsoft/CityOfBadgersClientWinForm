@@ -59,7 +59,17 @@ namespace CityOfBadgersClientTool
 
         internal static string GetLogFileName()
         {
-            return $"chatlog {DateTime.Today:yyyy-MM-dd}.txt"; 
+            return $"chatlog*{DateTime.Today:yyyy-MM-dd}.txt"; 
+        }
+        internal static string GetCurrentLogFilePath()
+        {
+            string fileSearchPath = GetLogFileName();
+            string folder = MainConfig.Instance.SelectedAccount.LogFileFolder;
+            string[] files = Directory.GetFiles(folder, fileSearchPath, SearchOption.AllDirectories);
+            if (files.Length > 0)
+                return files[0];
+            return null;
+
         }
         public static void Process()
         {

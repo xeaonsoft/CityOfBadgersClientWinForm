@@ -31,8 +31,9 @@ namespace CityOfBadgersClientTool
 
 
 
-            string logFileName = CohLogPathManagement.GetLogFileName();
-            string path = Path.Combine(MainConfig.Instance.SelectedAccount.LogFileFolder, logFileName);
+            //string logFileName = CohLogPathManagement.GetLogFileName();
+            //string path = Path.Combine(MainConfig.Instance.SelectedAccount.LogFileFolder, logFileName);
+            string path = CohLogPathManagement.GetCurrentLogFilePath();
             if (!File.Exists(path))
             {
                 MessageBox.Show("Log file is not found!");
@@ -89,7 +90,9 @@ namespace CityOfBadgersClientTool
                 string content = sr.ReadToEnd();
                 lines = content.Split('\r');
             }
-            string globalName = null;//need to use globalName from Log file as the folder names are login names, not global names
+            LogData data = new LogData();
+            data.ContentLines = lines;
+            
             //read lines in reverse
             for (int i = lines.Length - 1; i >= 0; i--)
             {
@@ -102,20 +105,19 @@ namespace CityOfBadgersClientTool
                     if (line.Trim().StartsWith(globalEntryStart))
                     {
                         string name = line.Replace(globalEntryStart, string.Empty);
-                        globalName = name.Substring(0, name.Length).Trim().TrimStart('@');
+                        data.GlobalName = name.Substring(0, name.Length).Trim().TrimStart('@');
                     }
                     else if (line.Trim().StartsWith(logInRed) || line.Trim().StartsWith(logInBlue))
                     {
-
                         string name = line.Replace(logInRed, string.Empty).Replace(logInBlue, string.Empty);
-
-                        LogData data = new LogData();
                         data.ToonName = name.Substring(0, name.Length - 1).Trim();
                         data.LogStartEntry = DateTime.Parse(date);
-                        data.GlobalName = globalName;//MainConfig.Instance.SelectedAccount.Name;
-                        data.ContentLines = lines;
-                        return data;
+                        
+                     
                     }
+
+                    if (!string.IsNullOrEmpty(data.GlobalName) && !string.IsNullOrEmpty(data.ToonName))
+                        return data;
                 }
             }
 
