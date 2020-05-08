@@ -18,6 +18,14 @@ namespace CityOfBadgersClientTool
         public MainForm()
         {
             InitializeComponent();
+
+            DisplayMoreInfoToggle();
+            LiveLog.Init(OnInfoEvent);
+        }
+
+        private void OnInfoEvent(string line)
+        {
+            listBoxLiveLog.Items.Add(line);
         }
 
         private void menuStrip1_Paint(object sender, PaintEventArgs e)
@@ -154,6 +162,22 @@ namespace CityOfBadgersClientTool
             using (FormConfig form = new FormConfig())
                 form.ShowDialog();
             this.LoadUI();
+        }
+
+        private void cbShowLiveLogs_CheckedChanged(object sender, EventArgs e)
+        {
+            DisplayMoreInfoToggle();
+        }
+        private void DisplayMoreInfoToggle()
+        {
+            cbShowLiveLogs.Visible = false;
+            listBoxLiveLog.Visible = false; // cbShowLiveLogs.Checked;
+            if(listBoxLiveLog.Visible)
+                this.Height = listBoxLiveLog.Bottom + 50;
+            else
+                this.Height = cbShowLiveLogs.Bottom + 50;
+
+            bClose.Top = this.Height - bClose.Height - 50;
         }
     }
 }

@@ -48,6 +48,8 @@
             this.menuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.generateBindFilesToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.configurationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cbShowLiveLogs = new System.Windows.Forms.CheckBox();
+            this.listBoxLiveLog = new System.Windows.Forms.ListBox();
             ((System.ComponentModel.ISupportInitialize)(this.imgLed)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -188,7 +190,7 @@
             // bClose
             // 
             this.bClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bClose.Location = new System.Drawing.Point(447, 404);
+            this.bClose.Location = new System.Drawing.Point(447, 455);
             this.bClose.Name = "bClose";
             this.bClose.Size = new System.Drawing.Size(88, 34);
             this.bClose.TabIndex = 14;
@@ -220,22 +222,46 @@
             // generateBindFilesToolStripMenuItem1
             // 
             this.generateBindFilesToolStripMenuItem1.Name = "generateBindFilesToolStripMenuItem1";
-            this.generateBindFilesToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.generateBindFilesToolStripMenuItem1.Size = new System.Drawing.Size(174, 22);
             this.generateBindFilesToolStripMenuItem1.Text = "Generate Bind Files";
             this.generateBindFilesToolStripMenuItem1.Click += new System.EventHandler(this.generateBindFilesToolStripMenuItem1_Click);
             // 
             // configurationToolStripMenuItem
             // 
             this.configurationToolStripMenuItem.Name = "configurationToolStripMenuItem";
-            this.configurationToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.configurationToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
             this.configurationToolStripMenuItem.Text = "Configuration";
             this.configurationToolStripMenuItem.Click += new System.EventHandler(this.configurationToolStripMenuItem_Click);
+            // 
+            // cbShowLiveLogs
+            // 
+            this.cbShowLiveLogs.AutoSize = true;
+            this.cbShowLiveLogs.ForeColor = System.Drawing.SystemColors.ButtonShadow;
+            this.cbShowLiveLogs.Location = new System.Drawing.Point(11, 365);
+            this.cbShowLiveLogs.Name = "cbShowLiveLogs";
+            this.cbShowLiveLogs.Size = new System.Drawing.Size(115, 17);
+            this.cbShowLiveLogs.TabIndex = 16;
+            this.cbShowLiveLogs.Text = "Display more info...";
+            this.cbShowLiveLogs.UseVisualStyleBackColor = true;
+            this.cbShowLiveLogs.CheckedChanged += new System.EventHandler(this.cbShowLiveLogs_CheckedChanged);
+            // 
+            // listBoxLiveLog
+            // 
+            this.listBoxLiveLog.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.listBoxLiveLog.ForeColor = System.Drawing.Color.Turquoise;
+            this.listBoxLiveLog.FormattingEnabled = true;
+            this.listBoxLiveLog.Location = new System.Drawing.Point(11, 394);
+            this.listBoxLiveLog.Name = "listBoxLiveLog";
+            this.listBoxLiveLog.Size = new System.Drawing.Size(430, 95);
+            this.listBoxLiveLog.TabIndex = 17;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(547, 450);
+            this.ClientSize = new System.Drawing.Size(547, 501);
+            this.Controls.Add(this.listBoxLiveLog);
+            this.Controls.Add(this.cbShowLiveLogs);
             this.Controls.Add(this.bClose);
             this.Controls.Add(this.imgLed);
             this.Controls.Add(this.bValidateClientToken);
@@ -287,6 +313,8 @@
         private System.Windows.Forms.ToolStripMenuItem menuToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem generateBindFilesToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem configurationToolStripMenuItem;
+        private System.Windows.Forms.CheckBox cbShowLiveLogs;
+        private System.Windows.Forms.ListBox listBoxLiveLog;
     }
 }
 

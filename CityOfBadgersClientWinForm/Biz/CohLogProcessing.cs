@@ -62,11 +62,21 @@ namespace CityOfBadgersClientTool
         }
         private static bool ValidateIsHomecoming(string path)
         {
+
+            LiveLog.Instance.Log($"Path >>:  {path}");
+
             string parent1 = Directory.GetParent(path).FullName;
             string parent2 = Directory.GetParent(parent1).FullName;
             string gameRootFolder = Directory.GetParent(parent2).FullName;
-            string exePath = Path.Combine(gameRootFolder, "homecoming.exe");
-            return File.Exists(exePath);
+
+            LiveLog.Instance.Log($"GameRootFolder >>:  {gameRootFolder}");
+
+            //string exePath = Path.Combine(gameRootFolder, "homecoming.exe");
+            //return File.Exists(exePath);
+            string hcFolder = Path.Combine(gameRootFolder, "homecoming");
+            LiveLog.Instance.Log($"Homecoming Folder >>:  {hcFolder}");
+
+            return Directory.Exists(hcFolder);
         }
         public static LogData FetchData(string path)
         {
