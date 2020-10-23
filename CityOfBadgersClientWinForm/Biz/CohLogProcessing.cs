@@ -40,11 +40,11 @@ namespace CityOfBadgersClientTool
                 return null;
             }
 
-            if (!ValidateIsHomecoming(path))
-            {
-                MessageBox.Show("HOMECOMING validation failed!");
-                return null;
-            }
+            //if (!ValidateIsHomecoming(path))
+            //{
+            //    MessageBox.Show("HOMECOMING validation failed!");
+            //    return null;
+            //}
 
 
 
