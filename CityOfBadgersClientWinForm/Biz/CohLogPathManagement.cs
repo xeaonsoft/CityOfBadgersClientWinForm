@@ -12,49 +12,51 @@ namespace CityOfBadgersClientTool
     {
         public static void FetchLogFilePath()
         {
-            //FolderBrowserDialog dialogue = new FolderBrowserDialog();
+            using (FolderBrowserDialog dialogue = new FolderBrowserDialog())
+            {
 
+                if (!string.IsNullOrEmpty(MainConfig.Instance.LogFileFolder))
+                {
+                    if (Directory.Exists(MainConfig.Instance.LogFileFolder))
+                        dialogue.SelectedPath = MainConfig.Instance.LogFileFolder;
+                }
+
+                DialogResult dr = dialogue.ShowDialog();
+                if (dr == DialogResult.OK)
+                {
+                    MainConfig.Instance.LogFileFolder = dialogue.SelectedPath;
+                    MainConfig.Instance.Save();
+                    Process();
+                }
+            }
+
+            //string defaultPath = null;
             //if (!string.IsNullOrEmpty(MainConfig.Instance.LogFileFolder))
             //{
             //    if (Directory.Exists(MainConfig.Instance.LogFileFolder))
-            //        dialogue.SelectedPath = MainConfig.Instance.LogFileFolder;
+            //        defaultPath = MainConfig.Instance.LogFileFolder;
             //}
 
-            //DialogResult dr = dialogue.ShowDialog();
-            //if (dr == DialogResult.OK)
+            //var dialogue = new Ionic.Utils.FolderBrowserDialogEx
+            //{
+            //    Description = "Select a folder:",
+            //    ShowNewFolderButton = false,
+            //    ShowEditBox = true,
+            //    SelectedPath = defaultPath,
+            //    ShowFullPathInEditBox = true,
+
+            //};
+
+            //dialogue.RootFolder = System.Environment.SpecialFolder.MyComputer;
+
+            //var result = dialogue.ShowDialog();
+
+            //if (result == DialogResult.OK)
             //{
             //    MainConfig.Instance.LogFileFolder = dialogue.SelectedPath;
             //    MainConfig.Instance.Save();
             //    Process();
             //}
-
-            string defaultPath = null;
-            if (!string.IsNullOrEmpty(MainConfig.Instance.LogFileFolder))
-            {
-                if (Directory.Exists(MainConfig.Instance.LogFileFolder))
-                    defaultPath = MainConfig.Instance.LogFileFolder;
-            }
-
-            var dialogue = new Ionic.Utils.FolderBrowserDialogEx
-            {
-                Description = "Select a folder:",
-                ShowNewFolderButton = false,
-                ShowEditBox = true,
-                SelectedPath = defaultPath,
-                ShowFullPathInEditBox = true,
-
-            };
-
-            dialogue.RootFolder = System.Environment.SpecialFolder.MyComputer;
-
-            var result = dialogue.ShowDialog();
-
-            if (result == DialogResult.OK)
-            {
-                MainConfig.Instance.LogFileFolder = dialogue.SelectedPath;
-                MainConfig.Instance.Save();
-                Process();
-            }
         }
 
         internal static string GetLogFileName()

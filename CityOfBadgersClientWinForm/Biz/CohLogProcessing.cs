@@ -102,7 +102,7 @@ namespace CityOfBadgersClientTool
             }
             LogData data = new LogData();
             data.ContentLines = lines;
-            
+
             //read lines in reverse
             for (int i = lines.Length - 1; i >= 0; i--)
             {
@@ -122,8 +122,8 @@ namespace CityOfBadgersClientTool
                         string name = line.Replace(logInRed, string.Empty).Replace(logInBlue, string.Empty);
                         data.ToonName = name.Substring(0, name.Length - 1).Trim();
                         data.LogStartEntry = DateTime.Parse(date);
-                        
-                     
+
+
                     }
 
                     if (!string.IsNullOrEmpty(data.GlobalName) && !string.IsNullOrEmpty(data.ToonName))
@@ -156,14 +156,16 @@ namespace CityOfBadgersClientTool
                     if (line.EndsWith(BadgeDetectionKey1))
                     {
                         line = line.Replace(BadgeDetectionKey1, string.Empty).Trim();
-                        discoveredList.Add(line);
+                        if (!discoveredList.Contains(line))
+                            discoveredList.Add(line);
                     }
                     if (line.Contains(BadgeDetectionKey2))
                     {
                         line = line.Replace(BadgeDetectionKey2, string.Empty);
                         line = line.Replace("badge.", string.Empty);
                         line = line.Trim();
-                        discoveredList.Add(line);
+                        if (!discoveredList.Contains(line))
+                            discoveredList.Add(line);
                     }
                 }
             }
